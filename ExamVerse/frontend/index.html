@@ -8,15 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen overflow-x-hidden">
+<body class="min-h-screen overflow-x-hidden bg-slate-900">
     
-    <!-- Animated Background -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-        <div class="absolute top-40 right-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div class="absolute bottom-20 left-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
-    </div>
-
     <!-- Navigation -->
     <nav class="relative z-10 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -68,115 +61,200 @@
                 </div>
             </div>
 
-      <!-- Animated text elements -->
-      <div class="animated-text" id="animatedText">
-        <span class="text-part" id="textPart1">Assigment</span>
-        <span class="text-part" id="textPart2">Problem statement</span>
-        <span class="text-part" id="textPart3">Unit test</span>
-        <span class="text-part" id="textPart4">Game zone</span>
-        <span class="text-part" id="textPart5">Solution</span>
-      </div>
-    </div>
+            <!-- Stats Section -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+                <div class="glass-card p-6 rounded-2xl animate-fade-in-up animation-delay-200">
+                    <div class="text-4xl font-bold text-purple-400 mb-2">10,000+</div>
+                    <div class="text-gray-300">Question Papers</div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl animate-fade-in-up animation-delay-400">
+                    <div class="text-4xl font-bold text-blue-400 mb-2">AI-Powered</div>
+                    <div class="text-gray-300">Smart Solutions</div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl animate-fade-in-up animation-delay-600">
+                    <div class="text-4xl font-bold text-pink-400 mb-2">24/7</div>
+                    <div class="text-gray-300">Learning Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Features Section -->
-    <section class="features-section">
-      <div class="section-header">
-        <h2>Our Amazing Features</h2>
-        <p>
-          Discover the powerful tools that will transform your learning
-          experience
-        </p>
-      </div>
+    <section id="features" class="relative z-10 px-6 py-20">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">
+                Powerful Features for <span class="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Smart Learning</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="glass-card p-8 rounded-2xl hover:scale-105 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-file-pdf text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Previous Year Papers</h3>
+                    <p class="text-gray-300">Access thousands of previous year question papers from top colleges and universities.</p>
+                </div>
 
-      <div class="features-container">
-        <div class="feature-box">
-          <div class="feature-icon">
-            <i class="fas fa-tasks"></i>
-          </div>
-          <h3>Assignment Helper</h3>
-          <p>
-            Get expert help with your assignments and projects with our
-            intelligent assistance system
-          </p>
+                <!-- Feature 2 -->
+                <div class="glass-card p-8 rounded-2xl hover:scale-105 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">AI Solutions</h3>
+                    <p class="text-gray-300">Get instant AI-powered solutions with step-by-step explanations using Gemini AI.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-card p-8 rounded-2xl hover:scale-105 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-video text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Video Solutions</h3>
+                    <p class="text-gray-300">Watch curated YouTube video tutorials for better understanding of concepts.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="glass-card p-8 rounded-2xl hover:scale-105 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-search text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Smart Search</h3>
+                    <p class="text-gray-300">Find papers instantly with advanced filters by subject, year, and college.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="glass-card p-8 rounded-2xl hover:scale-105 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-bookmark text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Save Favorites</h3>
+                    <p class="text-gray-300">Bookmark important papers and questions for quick access during revision.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="glass-card p-8 rounded-2xl hover:scale-105 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Faculty Verified</h3>
+                    <p class="text-gray-300">All papers are uploaded and verified by college faculty members.</p>
+                </div>
+            </div>
         </div>
-
-        <div class="feature-box">
-          <div class="feature-icon">
-            <i class="fa-solid fa-microscope"></i>
-          </div>
-          <h3>Game Zone</h3>
-          <p>
-            Learn through interactive games that make education fun and engaging
-          </p>
-        </div>
-
-        <div class="feature-box">
-          <div class="feature-icon">
-            <i class="fas fa-file-alt"></i>
-          </div>
-          <h3>Paper Solver</h3>
-          <p>
-            Solve previous year papers with step-by-step solutions and
-            explanations
-          </p>
-        </div>
-      </div>
-    </section>
-    <!-- work section -->
-
-    <section class="work">
-      <div class="work-container">
-        <h1 class="work-title">How It Works</h1>
-        <div class="steps">
-          <div class="step-card">
-            <div class="step-number">01</div>
-            <div class="step-content">
-              <h3>Sign Up & Create Account</h3>
-              <p>
-                Quick registration to get started with your learning journey
-              </p>
-            </div>
-            <div class="step-icon">
-              <i class="fas fa-user-plus"></i>
-            </div>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">02</div>
-            <div class="step-content">
-              <h3>Select Course & Subject</h3>
-              <p>Choose from our wide range of courses and subjects</p>
-            </div>
-            <div class="step-icon">
-              <i class="fas fa-book-open"></i>
-            </div>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">03</div>
-            <div class="step-content">
-              <h3>Choose Assignment Type</h3>
-              <p>Select assignments or previous year papers</p>
-            </div>
-            <div class="step-icon">
-              <i class="fas fa-tasks"></i>
-            </div>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">04</div>
-            <div class="step-content">
-              <h3>Get Instant Access</h3>
-              <p>Access solutions and tools immediately</p>
-            </div>
-            <div class="step-icon">
-              <i class="fas fa-rocket"></i>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <script src="js/script.js"></script>
-  </body>
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="relative z-10 px-6 py-20">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">
+                How It <span class="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Works</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Sign Up</h3>
+                    <p class="text-gray-300">Create your account and select your college, course, and year.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Browse Papers</h3>
+                    <p class="text-gray-300">Search and filter papers relevant to your syllabus.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Get Solutions</h3>
+                    <p class="text-gray-300">Access AI-generated or faculty-provided solutions instantly.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                        4
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Ace Your Exams</h3>
+                    <p class="text-gray-300">Practice, learn, and excel in your examinations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative z-10 px-6 py-20">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="glass-card p-12 rounded-3xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Ready to Transform Your Learning?
+                </h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Join thousands of students already using ExamVerse to ace their exams.
+                </p>
+                <button onclick="window.location.href='register.html'" class="px-10 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-rocket mr-2"></i>
+                    Start Learning Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 px-6 py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold text-white">ExamVerse</span>
+                    </div>
+                    <p class="text-gray-400">Empowering students with AI-driven learning solutions.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/20 transition-all">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/20 transition-all">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/20 transition-all">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 ExamVerse. All rights reserved. Built with ❤️ for students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/animations.js"></script>
+</body>
 </html>
