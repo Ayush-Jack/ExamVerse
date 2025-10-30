@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - ExamVerse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
+    
+    <!-- Animated Background -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+        <div class="absolute top-40 right-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+    </div>
+
+    <div class="relative z-10 flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 glass-card border-r border-white/10 p-6 hidden lg:block">
+            <div class="flex items-center space-x-2 mb-8">
+                <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-graduation-cap text-white text-xl"></i>
+                </div>
+                <span class="text-2xl font-bold text-white">ExamVerse</span>
+            </div>
+
+            <nav class="space-y-2">
+                <a href="dashboard.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-purple-500/20 text-white border border-purple-500/30">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" onclick="showSavedPapers()" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-all">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Saved Papers</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-all">
+                    <i class="fas fa-history"></i>
+                    <span>Recent</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-all">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+
+            <div class="mt-auto pt-8">
+                <button onclick="logout()" class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-red-400 hover:bg-red-500/10 transition-all">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 lg:p-8">
+            <!-- Header -->
+            <header class="mb-8">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                    <div>
+                        <h1 class="text-3xl font-bold text-white mb-2">Welcome back, <span id="userName">Student</span>! 👋</h1>
+                        <p class="text-gray-400">Find and access previous year question papers</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="glass-card px-4 py-2 rounded-lg">
+                            <div class="text-sm text-gray-400">College</div>
+                            <div class="text-white font-semibold" id="userCollege">-</div>
+                        </div>
+                        <div class="glass-card px-4 py-2 rounded-lg">
+                            <div class="text-sm text-gray-400">Course</div>
+                            <div class="text-white font-semibold" id="userCourse">-</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Search and Filters -->
+            <div class="glass-card p-6 rounded-2xl mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Search -->
+                    <div class="lg:col-span-2">
+                        <div class="relative">
+                            <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <input 
+                                type="text" 
+                                id="searchInput"
+                                placeholder="Search papers by title or subject..."
+                                class="w-full pl-12 pr-4 py-3 rounded-lg input-field text-white placeholder-gray-500"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Subject Filter -->
+                    <div>
+                        <select id="subjectFilter" class="w-full px-4 py-3 rounded-lg input-field text-white">
+                            <option value="">All Subjects</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Data Structures">Data Structures</option>
+                            <option value="Algorithms">Algorithms</option>
+                            <option value="Database">Database</option>
+                            <option value="Operating Systems">Operating Systems</option>
+                        </select>
+                    </div>
+
+                    <!-- Year Filter -->
+                    <div>
+                        <select id="yearFilter" class="w-full px-4 py-3 rounded-lg input-field text-white">
+                            <option value="">All Years</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Papers Grid -->
+            <div id="papersContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Papers will be loaded here -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="hidden text-center py-20">
+                <div class="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-file-pdf text-4xl text-gray-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2">No Papers Found</h3>
+                <p class="text-gray-400">Try adjusting your filters or search query</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="lg:hidden fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white shadow-lg z-50">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <script src="js/config.js"></script>
+    <script>
+        let allPapers = [];
+        let currentUser = null;
+
+        // Check authentication
+        if (!isAuthenticated()) {
+            window.location.href = 'login.html';
+        }
+
+        currentUser = getUserData();
+        if (currentUser.role !== 'student') {
+            window.location.href = 'faculty-dashboard.html';
+        }
+
+        // Load user info
+        document.getElementById('userName').textContent = currentUser.name.split(' ')[0];
+        document.getElementById('userCollege').textContent = currentUser.collegeName;
+        document.getElementById('userCourse').textContent = `${currentUser.course} - ${currentUser.year}`;
+
+        // Load papers
+        async function loadPapers() {
+            const container = document.getElementById('papersContainer');
+            showLoading(container);
+
+            try {
+                const data = await apiRequest(API_CONFIG.ENDPOINTS.PAPERS, {
+                    method: 'GET'
+                });
+
+                allPapers = data.papers || [];
+                displayPapers(allPapers);
+            } catch (error) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <i class="fas fa-exclamation-circle text-4xl text-red-500 mb-4"></i>
+                        <p class="text-white">Failed to load papers. Please try again.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Display papers
+        function displayPapers(papers) {
+            const container = document.getElementById('papersContainer');
+            const emptyState = document.getElementById('emptyState');
+
+            if (papers.length === 0) {
+                container.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            container.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+
+            container.innerHTML = papers.map(paper => `
+                <div class="glass-card p-6 rounded-2xl card-hover cursor-pointer" onclick="viewPaper('${paper._id}')">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-file-pdf text-white text-xl"></i>
+                        </div>
+                        <span class="badge">${paper.year}</span>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-white mb-2 line-clamp-2">${paper.title}</h3>
+                    <p class="text-gray-400 mb-4">${paper.subject}</p>
+                    
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="fas fa-university mr-2"></i>${paper.collegeName}</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <div class="flex items-center space-x-4 text-sm text-gray-400">
+                            <span><i class="fas fa-eye mr-1"></i>${paper.views}</span>
+                            <span><i class="fas fa-download mr-1"></i>${paper.downloads}</span>
+                            <span><i class="fas fa-thumbs-up mr-1"></i>${paper.upvotes}</span>
+                        </div>
+                        ${paper.hasFacultySolution ? 
+                            '<span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">Faculty Solution</span>' : 
+                            '<span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">AI Solution</span>'
+                        }
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter papers
+        function filterPapers() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const subjectFilter = document.getElementById('subjectFilter').value;
+            const yearFilter = document.getElementById('yearFilter').value;
+
+            const filtered = allPapers.filter(paper => {
+                const matchesSearch = paper.title.toLowerCase().includes(searchTerm) || 
+                                    paper.subject.toLowerCase().includes(searchTerm);
+                const matchesSubject = !subjectFilter || paper.subject === subjectFilter;
+                const matchesYear = !yearFilter || paper.year === yearFilter;
+
+                return matchesSearch && matchesSubject && matchesYear;
+            });
+
+            displayPapers(filtered);
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', debounce(filterPapers, 300));
+        document.getElementById('subjectFilter').addEventListener('change', filterPapers);
+        document.getElementById('yearFilter').addEventListener('change', filterPapers);
+
+        // View paper
+        function viewPaper(paperId) {
+            window.location.href = `paper-view.html?id=${paperId}`;
+        }
+
+        // Show saved papers
+        function showSavedPapers() {
+            showToast('Loading saved papers...', 'info');
+            // Filter to show only saved papers
+            const savedPaperIds = currentUser.savedPapers || [];
+            const savedPapers = allPapers.filter(paper => savedPaperIds.includes(paper._id));
+            displayPapers(savedPapers);
+        }
+
+        // Logout
+        function logout() {
+            clearAuthData();
+            window.location.href = 'index.html';
+        }
+
+        // Initialize
+        loadPapers();
+    </script>
+</body>
+</html>
